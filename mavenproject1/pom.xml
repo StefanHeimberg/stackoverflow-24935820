@@ -19,6 +19,7 @@
         
         <!-- dependency versions -->
         <javaee.version>7.0</javaee.version>
+        <mojarra.version>2.2.12</mojarra.version>
         
         <!-- plugin versions -->
     </properties>
@@ -29,6 +30,12 @@
             <artifactId>javaee-api</artifactId>
             <version>${javaee.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.faces</artifactId>
+            <version>${mojarra.version}</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
