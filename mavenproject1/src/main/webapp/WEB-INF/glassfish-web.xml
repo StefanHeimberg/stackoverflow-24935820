@@ -1,4 +1,26 @@
 <glassfish-web-app error-url="">
-  <class-loader delegate="false" />
-  <property name="useBundledJsf" value="true" />
+    <!--
+    From https://glassfish.java.net/docs/4.0/application-development-guide.pdf:
+
+    Delegation
+    - - - - - -
+
+    The Java Servlet specification recommends that a web module's class loader
+    look in the local class loader before delegating to its parent. You can make
+    this class loader follow the delegation inversion model in the Servlet
+    specification by setting delegate="false" in the class-loader element of the
+    glassfish-web.xml file. It is safe to do this only for a web module that
+    does not interact with any other modules. For details, see "class-loader" in
+    GlassFish Server Open Source Edition Application Deployment Guide.
+
+    ...
+
+    For a number of packages, including java.* and javax.*, symbol resolution is
+    always delegated to the parent class loader regardless of the delegate
+    setting. This prevents applications from overriding core Java runtime
+    classes or changing the API versions of specifications that are part of the
+    Java EE platform.
+    -->
+    <class-loader delegate="false" />
+    <property name="useBundledJsf" value="true" />
 </glassfish-web-app>
